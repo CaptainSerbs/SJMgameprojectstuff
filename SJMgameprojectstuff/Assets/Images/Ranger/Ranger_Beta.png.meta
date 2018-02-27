@@ -1,9 +1,21 @@
 fileFormatVersion: 2
-guid: ae74fa1203024ab48b1280692769d6f8
-timeCreated: 1519651516
+guid: a35965e45b1ae4249813105d1b83d625
+timeCreated: 1519722466
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Ranger_Up_lArm
+    21300002: Ranger_Up_body
+    21300004: Ranger_Up_rArm
+    21300006: Ranger_Right_rArm
+    21300008: Ranger_Left_lArm
+    21300010: Ranger_Right_body
+    21300012: Ranger_Down_body
+    21300014: Ranger_Left_body
+    21300016: Ranger_Right_lArm
+    21300018: Ranger_Down_rArm
+    21300020: Ranger_Down_lArm
+    21300022: Ranger_Left_rArm
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -31,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -40,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -66,9 +78,197 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Ranger_Up_lArm
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 63
+        width: 5
+        height: 21
+      alignment: 9
+      pivot: {x: 0.8623703, y: 0.1240714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ranger_Up_body
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 46
+        width: 13
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ranger_Up_rArm
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 63
+        width: 5
+        height: 21
+      alignment: 9
+      pivot: {x: 0.08586273, y: 0.13639686}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ranger_Right_rArm
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 56
+        width: 22
+        height: 7
+      alignment: 9
+      pivot: {x: 0.9647287, y: 0.4630236}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ranger_Left_lArm
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 56
+        width: 22
+        height: 7
+      alignment: 9
+      pivot: {x: 0.020176107, y: 0.35593086}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ranger_Right_body
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 23
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ranger_Down_body
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 13
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ranger_Left_body
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 23
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ranger_Right_lArm
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 14
+        width: 22
+        height: 8
+      alignment: 9
+      pivot: {x: 0.96472895, y: 0.5647092}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ranger_Down_rArm
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 2
+        width: 5
+        height: 21
+      alignment: 9
+      pivot: {x: 0.914138, y: 0.8451152}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ranger_Down_lArm
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 2
+        width: 5
+        height: 21
+      alignment: 9
+      pivot: {x: 0.111745454, y: 0.8451152}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ranger_Left_rArm
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 14
+        width: 22
+        height: 8
+      alignment: 9
+      pivot: {x: 0.20474347, y: 0.44261765}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
