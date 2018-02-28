@@ -10,6 +10,15 @@ public class MovementController : MonoBehaviour {
     // 0 = right, 1 = left
     private float charDir = 0;
 
+    public GameObject rangerBody, rangerLArm, rangerRArm;
+    public Sprite rBodyRight, rBodyLeft, rBodyUp, rBodyDown;
+    public Sprite rLArmRight, rLArmLeft, rLArmUp, rLArmDown;
+    public Sprite rRArmRight, rRArmLeft, rRArmUp, rRArmDown;
+
+    public GameObject handRotationAngle;
+
+    public bool combatMode;
+
 
     [SerializeField]
     [Range(10f, 100f)]
@@ -23,6 +32,15 @@ public class MovementController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
+        if (Input.GetButton("Fire1"))
+        {
+            combatMode = true;
+        }
+        else
+        {
+            combatMode = false;
+        }
+
         if(GetComponent<Rigidbody2D>().velocity != new Vector2(0, 0))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), GetComponent<Rigidbody2D>().velocity.y);
@@ -34,52 +52,68 @@ public class MovementController : MonoBehaviour {
 
                 GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, moveSpeed * Input.GetAxis("Vertical"));
             }
-        if (GetComponent<Rigidbody2D>().velocity.x > 0)
+        /*if (GetComponent<Rigidbody2D>().velocity.x > 0)
         {
-            // Suunta on oikea
-            transform.localScale = new Vector3(1f, 1f, 1f);
-            charDir = 0;
-            Debug.Log("Set to right");
+            transform.localScale = new Vector2(1,1);
+            
+            rangerBody.gameObject.GetComponent<SpriteRenderer>().sprite = rBodyLeft;
+            rangerLArm.gameObject.GetComponent<SpriteRenderer>().sprite = rLArmLeft;
+            rangerRArm.gameObject.GetComponent<SpriteRenderer>().sprite = rRArmLeft;
+            
         }
         else if (GetComponent<Rigidbody2D>().velocity.x < 0)
         {
-            // Suunta on vasemmalle
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-            charDir = 1;
-            Debug.Log("Set to left");
+            transform.localScale = new Vector2(-1, 1);
+            rangerBody.gameObject.GetComponent<SpriteRenderer>().sprite = rBodyRight;
+            rangerLArm.gameObject.GetComponent<SpriteRenderer>().sprite = rLArmRight;
+            rangerRArm.gameObject.GetComponent<SpriteRenderer>().sprite = rRArmRight;
         }
+        else if (GetComponent<Rigidbody2D>().velocity.y > 0)
+        {
+            rangerBody.gameObject.GetComponent<SpriteRenderer>().sprite = rBodyUp;
+            rangerLArm.gameObject.GetComponent<SpriteRenderer>().sprite = rLArmUp;
+            rangerRArm.gameObject.GetComponent<SpriteRenderer>().sprite = rRArmUp;
+        }
+        else if (GetComponent<Rigidbody2D>().velocity.y < 0)
+        {
+            rangerBody.gameObject.GetComponent<SpriteRenderer>().sprite = rBodyDown;
+            rangerLArm.gameObject.GetComponent<SpriteRenderer>().sprite = rLArmDown;
+            rangerRArm.gameObject.GetComponent<SpriteRenderer>().sprite = rRArmDown;
+        }*/
     }
 
     private void FixedUpdate()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawLine(ray.origin, ray.direction * 10000, Color.cyan);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 10000);
-        if (hit.collider != null && charDir == 0)
+        if (hit.collider != null)
         {
-            //Debug.Log("Hit!");
-           //Debug.Log(hit.collider.name);
 
             Vector3 hitPoint = hit.point;
 
             Vector3 targetDir = hitPoint - transform.position;
 
             float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+            
             Quaternion targetAngle = Quaternion.AngleAxis(angle, Vector3.forward);
+            Debug.DrawRay(ray.origin, targetDir, Color.red);
             lArm.transform.rotation = Quaternion.Slerp(lArm.transform.rotation, targetAngle, rotateSpeed * Time.deltaTime);
             rArm.transform.rotation = Quaternion.Slerp(rArm.transform.rotation, targetAngle, rotateSpeed * Time.deltaTime);
-        }else if (hit.collider != null && charDir == 1)
+            
+
+        }*/
+        if (combatMode == true)
         {
-
-            Vector3 hitPoint = hit.point;
-
-            Vector3 targetDir = hitPoint - transform.position;
-
-            float angle = Mathf.Atan2(targetDir.x, targetDir.y) * Mathf.Rad2Deg;
-            Quaternion targetAngle = Quaternion.AngleAxis(angle, Vector3.forward);
-            lArm.transform.rotation = Quaternion.Slerp(lArm.transform.rotation, targetAngle, rotateSpeed * Time.deltaTime);
-            rArm.transform.rotation = Quaternion.Slerp(rArm.transform.rotation, targetAngle, rotateSpeed * Time.deltaTime);
+            var pos = Camera.main.WorldToScreenPoint(transform.position);
+            var dir = Input.mousePosition - pos;
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            lArm.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            rArm.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            handRotationAngle.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+
     }
+
 
 }
