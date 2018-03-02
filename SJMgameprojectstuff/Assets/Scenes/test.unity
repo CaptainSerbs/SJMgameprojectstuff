@@ -232,7 +232,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 618622748}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -667,6 +667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1021531745}
   - component: {fileID: 1021531744}
+  - component: {fileID: 1021531746}
   m_Layer: 0
   m_Name: test-enemy
   m_TagString: Untagged
@@ -731,6 +732,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1021531746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1021531743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61418cd3f7eaf14f8bb6adcaa1cedef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1253467173
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,6 +852,7 @@ GameObject:
   - component: {fileID: 1545042995}
   - component: {fileID: 1545042996}
   - component: {fileID: 1545042997}
+  - component: {fileID: 1545042998}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -876,26 +889,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  rangerBody: {fileID: 829770451}
-  rangerLArm: {fileID: 1774893102}
-  rangerRArm: {fileID: 1004832171}
-  rBodyRight: {fileID: 21300010, guid: a35965e45b1ae4249813105d1b83d625, type: 3}
-  rBodyLeft: {fileID: 21300014, guid: a35965e45b1ae4249813105d1b83d625, type: 3}
-  rBodyUp: {fileID: 21300002, guid: a35965e45b1ae4249813105d1b83d625, type: 3}
-  rBodyDown: {fileID: 21300012, guid: a35965e45b1ae4249813105d1b83d625, type: 3}
-  rLArmRight: {fileID: 21300016, guid: a35965e45b1ae4249813105d1b83d625, type: 3}
-  rLArmLeft: {fileID: 21300008, guid: a35965e45b1ae4249813105d1b83d625, type: 3}
-  rLArmUp: {fileID: 21300004, guid: a35965e45b1ae4249813105d1b83d625, type: 3}
-  rLArmDown: {fileID: 21300020, guid: a35965e45b1ae4249813105d1b83d625, type: 3}
-  rRArmRight: {fileID: 21300006, guid: a35965e45b1ae4249813105d1b83d625, type: 3}
-  rRArmLeft: {fileID: 21300022, guid: a35965e45b1ae4249813105d1b83d625, type: 3}
-  rRArmUp: {fileID: 21300000, guid: a35965e45b1ae4249813105d1b83d625, type: 3}
-  rRArmDown: {fileID: 21300018, guid: a35965e45b1ae4249813105d1b83d625, type: 3}
-  handRotationAngle: {fileID: 712437621}
-  combatMode: 0
-  rotateSpeed: 100
+  pStates:
+  - name: right
+    playerState: {fileID: 11400000, guid: 943a998d6a4b54d43a81d0872105c8a3, type: 2}
+  - name: left
+    playerState: {fileID: 11400000, guid: 909eca37122d7034da78ad46d3e143ca, type: 2}
+  - name: up
+    playerState: {fileID: 11400000, guid: eff889dacbbba3940ab2eb8a869a9fee, type: 2}
+  - name: down
+    playerState: {fileID: 11400000, guid: 1f6da7f570c38274ebbaa201785a1190, type: 2}
+  - name: idle
+    playerState: {fileID: 11400000, guid: 2302433d6c0c6a94a8ac1c3c66c71842, type: 2}
+  body: {fileID: 829770451}
   lArm: {fileID: 1774893102}
   rArm: {fileID: 1004832171}
+  handRotationAngle: {fileID: 712437621}
+  combatMode: 0
+  cameraRotSpeed: 1
+  cameraOffset: 0
+  oneNinety: 0
 --- !u!50 &1545042996
 Rigidbody2D:
   serializedVersion: 4
@@ -941,6 +953,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.109259605, y: 0.053417444}
   m_EdgeRadius: 0
+--- !u!114 &1545042998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1545042993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61418cd3f7eaf14f8bb6adcaa1cedef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1745029694
 GameObject:
   m_ObjectHideFlags: 0
