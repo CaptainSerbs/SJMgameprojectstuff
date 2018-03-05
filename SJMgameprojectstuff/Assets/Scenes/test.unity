@@ -232,7 +232,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 618622748}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -906,8 +906,6 @@ MonoBehaviour:
   handRotationAngle: {fileID: 712437621}
   combatMode: 0
   cameraRotSpeed: 1
-  cameraOffset: 0
-  oneNinety: 0
 --- !u!50 &1545042996
 Rigidbody2D:
   serializedVersion: 4

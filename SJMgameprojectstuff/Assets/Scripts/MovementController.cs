@@ -60,18 +60,14 @@ public class MovementController : MonoBehaviour {
         }
         if (GetComponent<Rigidbody2D>().velocity != new Vector2(0, 0))
         {
-
-           
-                GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), GetComponent<Rigidbody2D>().velocity.y);
-            
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, moveSpeed * Input.GetAxis("Vertical"));
+            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), moveSpeed * Input.GetAxis("Vertical"));
             GetComponent<Rigidbody2D>().velocity = Camera.main.transform.TransformDirection(GetComponent<Rigidbody2D>().velocity);
 
-        }else if (Input.GetAxis("Horizontal") != 0.01 || Input.GetAxis("Vertical") != 0.01)
+        }
+        else if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), GetComponent<Rigidbody2D>().velocity.y);
-
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, moveSpeed * Input.GetAxis("Vertical"));
+            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), moveSpeed * Input.GetAxis("Vertical"));
+            GetComponent<Rigidbody2D>().velocity = Camera.main.transform.TransformDirection(GetComponent<Rigidbody2D>().velocity);
         }
 
 
@@ -199,6 +195,7 @@ public class MovementController : MonoBehaviour {
         }*/
         var pos = Camera.main.WorldToScreenPoint(transform.position);
         var dir = Input.mousePosition - pos;
+        dir = Camera.main.transform.TransformDirection(dir);
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         var angleHandRot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         if (combatMode == true)
